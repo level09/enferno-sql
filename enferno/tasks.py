@@ -9,7 +9,7 @@ try:
     from local_settings import LocalConfig
 except ImportError:
     LocalConfig = None
-if os.environ.get("ENFERNO_ENV") == 'prod':
+if os.environ.get("FLASK_DEBUG") == '0':
     cfg = ProdConfig
 elif LocalConfig :
     cfg = LocalConfig
