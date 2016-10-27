@@ -4,8 +4,8 @@ from flask.exthook import ExtDeprecationWarning
 warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 
-from app import create_app
-from settings import DevConfig, ProdConfig
+from enferno.app import create_app
+from enferno.settings import DevConfig, ProdConfig
 
 CONFIG = ProdConfig if os.environ.get('ENFERNO_ENV') == 'prod' else DevConfig
 
