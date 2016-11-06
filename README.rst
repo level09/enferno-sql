@@ -61,7 +61,7 @@ and follow the instructions, this will create your first user and first admin ro
 
 to run the system, you can use a management command:
 
-    $ ./manage.py server
+    $ flask run
 
 Then 
 
@@ -76,7 +76,7 @@ Features
 - Memory caching via Redis and Flask cache
 - Command line scripting via Flask Script (will be replaced by "click" in the next release)
 - Automatic assets bundling and minification via Flask assets
-- Mongodb and Mongoengine ORM
+- Relational database support with sql alchemy ORM
 - Background tasks via Celery
 - Email integration via Flask Mail
 - Best practices by utilizing Flask blueprints and development/production configuration
