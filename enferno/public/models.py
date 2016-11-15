@@ -1,5 +1,5 @@
 #import datetime
-from extensions import db
+from enferno.extensions import db
 
 
 
