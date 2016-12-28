@@ -30,9 +30,6 @@ body {
   padding-top: 70px;
 }
 
-
-
-
 @include establish-baseline;
 
 main {
@@ -40,69 +37,102 @@ main {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 40px 50px;
   background: white;
+  @include clearfix;
 }
 
 h3 {
   @include adjust-font-size-to(24px);
+  margin-bottom: 15px;
 }
 
 //Flask Security styling (user registeration/login etc ...)
 
 h2 {
   @include adjust-font-size-to(28px);
-  margin: 15px 0;
+  margin: 18px 0;
 }
 
-main {
-  padding: 35px;
-}
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  @include appearance(none);
+  font-size: 18px;
+  border: 0;
+  padding: 8px;
+  //width: 100%;
+  @include transition(all .2s ease);
+  background: #f0f0f0;
+  @include box-shadow(0 0 0 2px transparent);
 
-form {
-  @include display-flex();
-  flex-direction: column;
-
-  input:not([type=submit]) {
-    flex: 1; /* fluid width */
-    display: block; /* IE fix */
-    min-width: 0; /* fix for min-width: auto */
-  }
-
-}
-
-.field {
-  @include display-flex();
-  justify-content: flex-end;
-  flex: auto;
-  margin: 10px;
-  align-items: center;
-
-  label {
-    margin-right: 15px;
-    text-align: right;
-    width: 135px;
-
-  }
-
-  input,
-  textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-
-    background: rgba(0, 0, 0, .02);
-  }
-  input:focus,
-  textarea:focus {
+  &:focus {
+    background: #fff;
     outline: none;
-  }
-  input[type="submit"] {
-    padding: 5px 10px;
-    background: #555;
-    border: none;
-    color: #fff;
-    font-size: inherit;
-    cursor: pointer;
+    @include box-shadow(0 0 0 2px #000000);
+
   }
 
+}
+
+select {
+
+  padding: 6px;
+  border: 1px solid #f0f0f0;
+  @include border-radius(0);
+  width: 97%;
+  -webkit-appearance: none;
+
+  background: #f0f0f0;
+  &:focus {
+    background: #fff;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+  color: #444;
+}
+
+input[type="submit"] {
+  @include appearance(none);
+
+  align-items: center;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  color: #363636;
+
+  @include display-flex();
+
+  height: 32px;
+
+  line-height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+  vertical-align: top;
+  -webkit-touch-callout: none;
+  @include user-select(none);
+  cursor: pointer;
+
+  justify-content: center;
+
+  text-align: center;
+  white-space: nowrap;
+
+  @include transition(all .2s ease);
+  margin-top: 20px;
+
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: $font-family;
+  &:hover  {
+    border-color: #000000;
+    outline: none;
+
+  }
 }
