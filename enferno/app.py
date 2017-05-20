@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
-from settings import ProdConfig
+from enferno.settings import ProdConfig
 from flask_security import Security, SQLAlchemyUserDatastore
-from user.models import User, Role
-from user.forms import ExtendedRegisterForm
-from extensions import  cache,  db,  mail, debug_toolbar, migrate
-from public.views import bp_public
-from user.views import bp_user
-import commands
+from enferno.user.models import User, Role
+from enferno.user.forms import ExtendedRegisterForm
+from enferno.extensions import  cache,  db,  mail, debug_toolbar, migrate
+from enferno.public.views import bp_public
+from enferno.user.views import bp_user
+import enferno.commands as commands
 
 def create_app(config_object=ProdConfig):
 

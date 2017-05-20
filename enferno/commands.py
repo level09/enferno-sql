@@ -9,10 +9,10 @@ from flask import current_app
 from flask.cli import with_appcontext
 from werkzeug.exceptions import MethodNotAllowed, NotFound
 
-from extensions import db
+from enferno.extensions import db
 from flask_security.script import CreateUserCommand, AddRoleCommand
 from flask.ext.security.utils import encrypt_password
-from user.models import User
+from enferno.user.models import User
 from flask import current_app
 from flask.cli import with_appcontext
 
@@ -32,7 +32,7 @@ def install():
     """Install a default admin user and add an admin role to it.
     """
     #check if admin exists
-    from user.models import Role
+    from enferno.user.models import Role
     a = Role.query.filter(Role.name =='admin').first()
 
     if a == None:
@@ -44,7 +44,7 @@ def install():
         CreateUserCommand().run(email=u,password=p,active=1)
         AddRoleCommand().run(user_identifier=u,role_name='admin')
     else:
-        print 'Seems like an Admin is already installed'
+        print ('Seems like an Admin is already installed')
 
 
 @click.command()
@@ -60,7 +60,7 @@ def reset(email, password):
         u.password = pwd
         db.session.commit()
         print ('User password has been reset successfully.')
-    except Exception, e:
+    except Exception as e:
         print ('Error resetting user password: %s' % e)
 
 
