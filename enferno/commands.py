@@ -51,6 +51,24 @@ def install():
 @click.option('-e', '--email', prompt=True, default=None)
 @click.option('-p', '--password', prompt=True, default=None)
 @with_appcontext
+def create(email, password):
+    """Install a default admin user and add an admin role to it.
+    """
+
+    a = User.query.filter(User.email==email).first()
+    if a != None:
+        print 'User already exists!'
+    else:
+        CreateUserCommand().run(email=email, password=password, active=1)
+        #you can add default roles here
+
+
+
+
+@click.command()
+@click.option('-e', '--email', prompt=True, default=None)
+@click.option('-p', '--password', prompt=True, default=None)
+@with_appcontext
 def reset(email, password):
     """Reset a user password
     """
