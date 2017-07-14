@@ -41,8 +41,6 @@ class User(UserMixin, db.Model):
         return "%s %s %s" % (self.username, self.id, self.email)
 
 
-    def get_id(self):
-        return unicode(self.id)
 
     meta = {
         'allow_inheritance': True,
