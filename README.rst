@@ -50,7 +50,7 @@ Edit the settings.py and change the values to suit your needs, sepcifically you 
 After that, you should create your admin user, run the following command:
 ::
 
-    $ export FLASK_APP=enferno.py
+    $ export FLASK_APP=run.py
     $ flask create_db
     $ flask install 
 
