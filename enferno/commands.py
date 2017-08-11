@@ -20,7 +20,7 @@ from flask.cli import with_appcontext
 @click.command()
 @with_appcontext
 def create_db():
-    """Install a default admin user and add an admin role to it.
+    """creates db tables - import your models within commands.py to create the models.
     """
     # check if admin exists
     db.create_all()
